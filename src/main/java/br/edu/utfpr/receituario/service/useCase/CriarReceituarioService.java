@@ -6,5 +6,5 @@ import br.edu.utfpr.receituario.model.Receituario;
 import java.util.List;
 
 public interface CriarReceituarioService {
-    Receituario criarReceituario(List<Doenca> doencas, Integer numeroDias, String nomePaciente);
+    Receituario criarReceituario(List<Doenca> doencas, Integer numeroDias, String nomePaciente, String descricao);
 }

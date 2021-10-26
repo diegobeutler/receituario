@@ -16,20 +16,16 @@ public class CriarReceituarioServiceImpl implements CriarReceituarioService {
     @Autowired
     private ReceituarioServiceImpl receituarioServiceImpl;
 
-
-    public Receituario salvarReceituario(List<Doenca> doencas, Integer numeroDias, String nomePaciente) {
-        return  receituarioServiceImpl.save(criarReceituario(doencas, numeroDias, nomePaciente));
-
-    }
-
     @Override
-    public Receituario criarReceituario(List<Doenca> doencas, Integer numeroDias, String nomePaciente) {
+    public Receituario criarReceituario(List<Doenca> doencas, Integer numeroDias, String nomePaciente, String descricao) {
         Receituario entity = Receituario.builder()
                 .doenca(doencas)
                 .numeroDias(numeroDias)
                 .dataEmissao(LocalDate.now())
+                .descricao(descricao)
                 .nomePaciente(nomePaciente)
                 .build();
-        return entity;
+
+        return receituarioServiceImpl.save(entity);
     }
 }
